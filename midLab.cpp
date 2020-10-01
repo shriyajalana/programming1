@@ -45,18 +45,7 @@ int minpg(int a[], int n, int m)
     int h = 0, l = sm; 
     int result = INT_MAX; 
   
-    while (h<=l) 
-    {        
-        int mid = (l+h) / 2; 
-        if (compare(a, n, m, mid)) 
-        { 
-            result = min(result, mid); 
-            l = mid - 1; 
-        } 
-        else           
-            h = mid + 1; 
-    } 
-    return result; 
+        return result; 
 } 
 int main()
 {
