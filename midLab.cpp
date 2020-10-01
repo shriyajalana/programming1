@@ -1,15 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int input(){
-int a;cin>>a;
-if(cin.fail()){
-cout<<"Incorrect Input, Enter Again -"<<endl;
-cin.clear();
-cin.ignore(20,'\n');
-return input();
-}
-return a;
-}
+
 bool compare(int a[], int n, int m, int min) 
 { 
     int s = 1; 
