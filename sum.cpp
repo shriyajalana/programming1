@@ -4,6 +4,6 @@ int main()
 {
 	int a,b;
 	cin>>a>>b;
-	cout<<a+b;
+	cout<<"Sum: "<<a+b;
 	return 0;
 }
