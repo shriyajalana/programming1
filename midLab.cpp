@@ -70,7 +70,6 @@ int main()
 		a[i]=input();
 	}
 	int m;
-	cout<<"Number of stuents"<<endl;
 	m=input();
 	cout<<"Min no of pages are:"<< minpg(a,n,m);
 	return 0;
