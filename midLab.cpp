@@ -64,7 +64,7 @@ int main()
 	cout<<"How many Number of books?  ";
 	n=input();
 	int a[n];
-	cout<<"Enter number of pages :"<<endl;
+	printf("Eneter number of pages:\n");
 	for(int i=0;i<n;i++)
 	{
 		a[i]=input();
