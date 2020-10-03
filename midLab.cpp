@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 int input(){
@@ -64,3 +65,4 @@ int main()
 	cout<<"Min no of pages are:"<< minpg(a,n,m);
 	return 0;
 }
+
