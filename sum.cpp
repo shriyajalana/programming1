@@ -1,9 +1,10 @@
-#include<iostream>
-using namespace std;
+@include<stdio.h>
 int main()
 {
-	int a,b;
+	int a,b,c,d;
 	cin>>a>>b;
-	cout<<a+b;
+	c=a+b;
+	d=c;
+	cout<<d;
 	return 0;
 }
