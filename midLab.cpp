@@ -58,20 +58,3 @@ int minpg(int a[], int n, int m)
     } 
     return result; 
 } 
-int main()
-{
-	int n;
-	cout<<"How many Number of books?  ";
-	n=input();
-	int a[n];
-	printf("Eneter number of pages:\n");
-	for(int i=0;i<n;i++)
-	{
-		a[i]=input();
-	}
-	int m;
-	cout<<"Number of stuents"<<endl;
-	m=input();
-	cout<<"Min no of pages are:"<< minpg(a,n,m);
-	return 0;
-}
