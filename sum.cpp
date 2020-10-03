@@ -1,9 +1,9 @@
-#include<iostream>
-using namespace std;
+@include<stdio.h>
 int main()
 {
-	int a,b;
+	int a,b,c;
 	cin>>a>>b;
-	cout<<a+b;
+	c=a+b;
+	cout<<c;
 	return 0;
 }
