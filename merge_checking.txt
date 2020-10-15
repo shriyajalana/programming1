@@ -1,5 +1,4 @@
 I have a website that has colored divs with numbers, e.g. a red block with the number 2 inside of it. The color is important to understanding. A blind user emailed me asking if I could make it say "2 red" for his screen reader.
-
-I tried adding this as an alt="2 red" but he said that didn't do anything. He thinks it might only read alt tags for images.
-
+a group of words containing a subject and a verb, that expresses a statement, a question, etc. When a sentence is written it begins with a big (capital) letter and ends with a full stop
 Is there a good way to do this for divs?
+this is the repo where you can add or remove any thing whatever you want just doo it
