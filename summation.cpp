@@ -1,12 +1,14 @@
-//finding factorial of given number
-#include<stdio.h>
+//Summation of number upto given numbers in .cpp
+#include<iostream>
+using namespace std;
 int main()
 {
-	int n,i,p=1;
-	scanf("%d",&n);
+	int n,ans=0;
+	cin>>n;
 	for(i=1;i<=n;i++)
 	{
-		p=p*i;
+		ans=ans+i;
 	}
-	prinf("%d",p);
+	cout<<ans<<end;
+	return 0;
 }
