@@ -1,12 +1,13 @@
-//finding factorial of given number
-#include<iostream>
+//summation from 1 to given number
+#include<stdio.h>
 int main()
 {
-	int n,i,p=1;
+	int n,ans=0;
 	scanf("%d",&n);
 	for(i=1;i<=n;i++)
 	{
-		p=p*i;
+		ans=ans+i;
 	}
-	prinf("%d",p);
+	prinf("%d",ans);
+	return 0;
 }
