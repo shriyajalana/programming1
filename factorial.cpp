@@ -1,15 +1,25 @@
-//Calculate factorial of a number
-#include <iostream>
+//Calculate factorial of a Number using Recursion
+#include<iostream>
 using namespace std;
+
+int factorial(int n);
+
 int main()
 {
-    int i,fact=1,number;
-    cout<<"Enter any Number: ";
-    cin>>number;
-    for(i=1;i<=number;i++)
-    {
-    fact *= i;
-    }
-    cout << "Factorial of " << nunmer << " = " << fact;    
+    int n;
+
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    cout << "Factorial of " << n << " = " << factorial(n);
+
     return 0;
+}
+
+int factorial(int n)
+{
+    if(n > 1)
+        return n * factorial(n - 1);
+    else
+        return 1;
 }
