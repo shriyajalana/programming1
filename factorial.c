@@ -1,14 +1,17 @@
-//Using this code you can calculate the factorial of any given number
+//Using this code you can calculate the factorial of any given number using Recursion
 #include<stdio.h>
-int main()
-{
-	int n,i,fact=1;
-	scanf("%d",&fact);   //Enter a number
-	for(i=1;i<=fact;i++)
-	{
-		fact=fact*i;   //storing each i in fact variable
-	}
-	printf("%d",fact);   //This will give you the output of the factorial of the given Number
-	return 0;
+long int multiplyNumbers(int n);
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d",&n);
+    printf("Factorial of %d = %ld", n, multiplyNumbers(n));
+    return 0;
 }
-//The End 
+
+long int multiplyNumbers(int n) {
+    if (n>=1)
+        return n*multiplyNumbers(n-1);
+    else
+        return 1;
+}
