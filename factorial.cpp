@@ -1,7 +1,6 @@
 //Calculate factorial of a Number 
 
 
-
 #include <iostream>
 using namespace std;
 
@@ -21,7 +20,6 @@ int main()
     cout << "Factorial of " << n << " = " << factorial;    
     return 0;
 }
-
 
 Output:
 
