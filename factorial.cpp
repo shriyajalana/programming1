@@ -1,27 +1,15 @@
 //Calculate factorial of a Number 
 
-
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    unsigned int n;
-    unsigned long long factorial = 1;
-
-    cout << "Enter a positive integer: ";
-    cin >> n;
-
-    for(int i = 1; i <=n; ++i)
-    {
-        factorial *= i;
-    }
-
-    cout << "Factorial of " << n << " = " << factorial;    
-    return 0;
-}
-
-Output:
-
-Enter a positive integer: 12
-Factorial of 12 = 479001600
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+   int i,fact=1,number;    
+  cout<<"Enter any Number: ";    
+ cin>>number;    
+  for(i=1;i<=number;i++){    
+      fact=fact*i;    
+  }    
+  cout<<"Factorial of " <<number<<" is: "<<fact<<endl;  
+  return 0;  
+}  
