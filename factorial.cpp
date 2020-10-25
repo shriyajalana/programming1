@@ -18,3 +18,13 @@ int main()
     cout << "Factorial of " << n << " = " << factorial;    
     return 0;
 }
+
+
+Output:
+
+Enter a positive integer: 12
+Factorial of 12 = 479001600
+
+
+
+
