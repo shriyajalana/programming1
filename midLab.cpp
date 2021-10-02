@@ -1,59 +1,48 @@
-#include<bits/stdc++.h>
-using namespace std;
-int input(){
-int a;cin>>a;
-if(cin.fail()){
-cout<<"Incorrect Input, Enter Again -"<<endl;
-cin.clear();
-cin.ignore(20,'\n');
-return input();
+* Insertion of node at a given position
+*/
+void single_llist::insert_pos()
+{
+ int value, pos, counter = 0;
+ cout<<"Enter the value to be inserted: ";
+ cin>>value;
+ struct node *temp, *s, *ptr;
+ temp = create_node(value);
+ cout<<"Enter the postion at which node to be inserted: ";
+ cin>>pos;
+ int i;
+ s = start;
+ while (s != NULL)
+ {
+ s = s->next;
+ counter++;
+ }
+ if (pos == 1)
+ {
+ if (start == NULL)
+ {
+ start = temp;
+ start->next = NULL;
+ }
+ else
+ {
+ ptr = start;
+ start = temp;
+ start->next = ptr;
+ }
+ }
+ else if (pos > 1 && pos <= counter)
+ {
+ s = start;
+ for (i = 1; i < pos; i++)
+ {
+ ptr = s;
+ s = s->next;
+ }
+ ptr->next = temp;
+ temp->next = s;
+ }
+ else
+ {
+ cout<<"Positon out of range"<<endl;
+ }
 }
-return a;
-}
-bool compare(int a[], int n, int m, int min) 
-{ 
-    int s = 1; 
-    int sum = 0; 
-   for (int i = 0; i < n; i++) 
-    { 
-        if (a[i] > min) 
-            return false; 
-     
-        if (sum + a[i] > min) 
-        {          
-            s++; 
-            sum = a[i]; 
-  
-            if (s>m) 
-                return false; //which has many variants, is the common name for the most widely used computer numerical control (CNC) programming language.
-        } 
-         else
-            sum += a[i]; 
-    } 
-    return true; 
-} 
-int minpg(int a[], int n, int m) 
-{ 
-    int sm = 0; 
-    if (n < m) 
-        return -1;  
-    for (int i = 0; i < n; i++) 
-      {
-      	sm += a[i];
-		}      
-    int h = 0, l = sm; 
-    int result = INT_MAX; 
-  
-    while (h<=l) 
-    {        
-        int mid = (l+h) / 2; 
-        if (compare(a, n, m, mid)) 
-        { 
-            result = min(result, mid); 
-            l = mid - 1; 
-        } 
-        else           
-            h = mid + 1; 
-    } 
-    return result; 
-} 
