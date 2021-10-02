@@ -1,14 +1,5 @@
 #include <iostream>
 using namespace std;
-int sum(int A[], int number)
-{
-	int ans = 0;
-	for (int i = 0; i < number; i++)
-	{
-		ans += A[i];
-	}
-	return ans;
-}
 int main()
 {
 	int number;
@@ -18,9 +9,10 @@ int main()
 	{
 		cin >> A[i];
 	}
-	int ans;
-	ans = sum(A, number);
-	cout << "sum: " << ans << endl;
+	int ans=0;
+	for(int i=0;i<number;i++){
+		ans=ans+A[i];
+	}
 	return 0;
 }
 
