@@ -1,13 +1,15 @@
-//Two Number Summation Programme is here
+// summetion of all array intergers
 #include<stdio.h>
 int main()
 {
-	int ans,a,b;
-	printf("Enter first Number\n");
-	scanf("%d",&a);
-	printf("Enter second Number\n");
-	scanf("%d",&b);
-	ans=a+b;
+	int n;
+	scanf("%d",&n);
+	int a[n];
+	int ans=0;
+	for(int i=0;i<n;i++){
+		scanf("%d",&a[i]);
+		ans=ans+a[i];
+	}
 	prinf(" ans = %d",ans);
 	return 0;
 }

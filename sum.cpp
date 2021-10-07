@@ -1,19 +1,17 @@
-#include <iostream>
+include <iostream>
 using namespace std;
-int add(int,int);
 int main()
 {
-    int x,y,result; 
-    cout<<"enter two integers: ";
-    cin>>x>>y;
-    result=add(x,y);
-    cout<<"Sum of two numbers are:"<<result;
-    return 0;
-}
-int add(int x, int y)
-{
-    if(y==0)
-        return x;
-    else
-        return(1+add(x,y-1));
+	int number;
+	cin >> number;
+	int A[number];
+	for (int i = 0; i < number; i++)
+	{
+		cin >> A[i];
+	}
+	int ans=0;
+	for(int i=0;i<number;i++){
+		ans=ans+A[i];
+	}
+	return 0;
 }
