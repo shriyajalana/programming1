@@ -1,29 +1,20 @@
 #include <iostream>
 using namespace std;
-int main()
+void print(int n)
 {
-    int n, i;
-    cin >> n;
-    int pro = 1;
-    for (i = 1; i <= n; i++)
+    if (n == 0)
     {
-        pro = pro * i;
+        return;
     }
-    cout << pro << endl;
-    return 0;
+    print(n - 1);
+    cout << n << " ";
 }
 
-// int factorial(int n)
-// {
-//     if (n == 1)
-//     {
-//         return 1;
-//     }
-//     return n * factorial(n - 1);
-// }
-// int main()
-// {
-//     int n;
-//     cin >> n;
-//     cout << factorial(n) << endl;
-// }
+int main()
+{
+    int n;
+    cin >> n;
+    print(n);
+    cout << endl;
+    return 0;
+}
