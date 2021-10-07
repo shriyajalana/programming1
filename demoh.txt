@@ -1,1 +1,21 @@
-Kuch nahi bs check kr rha hu
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+    int n,m,i;
+    vector<int> vect;
+    cin>>n;
+    while(n!=0){
+        m=n%2;
+        vect.push_back(m);
+        n=n/2;
+    }
+    reverse(vect.begin(),vect.end());
+
+    for(i=0;i<vect.size();i++){
+        cout<<vect[i];
+    }
+    cout<<endl;
+    return 0;
+}
