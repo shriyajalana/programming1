@@ -1,59 +1,106 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int input(){
-int a;cin>>a;
-if(cin.fail()){
-cout<<"Incorrect Input, Enter Again -"<<endl;
-cin.clear();
-cin.ignore(20,'\n');
-return input();
+
+void lowerBound(int arr[], int n, int target)
+{
+    int low = 0;
+    int high = n - 1;
+    int mid;
+    int index = -1;
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        if (arr[mid] == target)
+        {
+            index = mid;
+            break;
+        }
+        else if (arr[mid] < target)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    if (index == -1)
+    {
+        cout << "lowerBound is: " << low << endl;
+    }
+    else
+    {
+        cout << "element is present " << index << endl;
+    }
 }
-return a;
+
+void UpperBound(int arr[], int n, int target)
+{
+    int low = 0;
+    int high = n;
+    int mid;
+    int index = -1;
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        if (arr[mid] == target)
+        {
+            index = mid;
+            break;
+        }
+        else if (arr[mid] < target)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    if (index == -1)
+    {
+        cout << low << endl;
+    }
+    else
+    {
+        cout << index + 1 << endl;
+    }
 }
-bool compare(int a[], int n, int m, int min) 
-{ 
-    int s = 1; 
-    int sum = 0; 
-   for (int i = 0; i < n; i++) 
-    { 
-        if (a[i] > min) 
-            return false; 
-     
-        if (sum + a[i] > min) 
-        {          
-            s++; 
-            sum = a[i]; 
-  
-            if (s>m) 
-                return false; //which has many variants, is the common name for the most widely used computer numerical control (CNC) programming language.
-        } 
-         else
-            sum += a[i]; 
-    } 
-    return true; 
-} 
-int minpg(int a[], int n, int m) 
-{ 
-    int sm = 0; 
-    if (n < m) 
-        return -1;  
-    for (int i = 0; i < n; i++) 
-      {
-      	sm += a[i];
-		}      
-    int h = 0, l = sm; 
-    int result = INT_MAX; 
-  
-    while (h<=l) 
-    {        
-        int mid = (l+h) / 2; 
-        if (compare(a, n, m, mid)) 
-        { 
-            result = min(result, mid); 
-            l = mid - 1; 
-        } 
-        else           
-            h = mid + 1; 
-    } 
-    return result; 
-} 
+int main()
+{
+    int arr[] = {4, 7, 13, 24, 45, 56, 67, 439};
+    int low = 0;
+    int n = 8;
+    int high = 7;
+    int mid;
+    int target = 5;
+    int result = -1;
+    lowerBound(arr, n, 48);  //lowerBound return if element is present otherwise next greater element
+    UpperBound(arr, n, 439); //lowerBound return if element is present otherwise next greater element
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        if (arr[mid] == target)
+        {
+            result = mid;
+            break;
+        }
+        else if (arr[mid] < target)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    if (result == -1)
+    {
+        cout << "not present\n";
+    }
+    else
+    {
+        cout << "Element present at index " << result << " and element is " << arr[result] << endl;
+    }
+    return 0;
+}
