@@ -1,1 +1,33 @@
-Kuch nahi bs check kr rha hu
+#include <iostream>
+using namespace std;
+
+void powTwo(int n)
+{
+    while (n > 1)
+    {
+        int k = n % 2;
+        if (k != 0)
+        {
+            cout << "No\n";
+            break;
+        }
+        n = n / 2;
+    }
+    if (n <= 1)
+    {
+        cout << "Yes\n";
+    }
+}
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        powTwo(n);
+    }
+
+    return 0;
+}
