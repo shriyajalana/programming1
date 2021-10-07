@@ -1,1 +1,21 @@
-Kuch nahi bs check kr rha hu ki Git command kaam kaise krta h
+#include<iostream>
+using namespace std;
+int main(){
+    long long int n,p,t,test,sum,i;
+    cin>>test;
+    for(i=0;i<=test;i++)
+    {
+        p=i;
+        n=i;
+        sum=0;
+        while(n!=0){
+            t=n%10;
+            sum=sum+(t*t*t);
+            n=n/10;
+        }
+        if(sum==p){
+            cout<<p<<"  \n";
+        }
+    }
+    return 0;
+}
