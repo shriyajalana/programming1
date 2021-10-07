@@ -1,4 +1,4 @@
-#include <iostream>
+include <iostream>
 using namespace std;
 int main()
 {
@@ -15,12 +15,3 @@ int main()
 	}
 	return 0;
 }
-
-/*
-output:
-
-5
-2 5 1 6 3
-sum: 17
-
-*/
