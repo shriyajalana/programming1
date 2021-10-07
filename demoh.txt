@@ -1,53 +1,33 @@
-
 #include <iostream>
-#include <stdlib.h>
 using namespace std;
 
-int Partition(int *A, int start, int end)
+void powTwo(int n)
 {
-    int Pindex = start;
-    int pivot = A[end];
-    for (int i = start; i < end; i++)
+    while (n > 1)
     {
-        if (A[i] < pivot)
+        int k = n % 2;
+        if (k != 0)
         {
-            swap(A[i], A[Pindex]);
-            Pindex++;
+            cout << "No\n";
+            break;
         }
+        n = n / 2;
     }
-    swap(A[end], A[Pindex]);
-    return Pindex;
-}
-
-int RandomizedPartition(int *A, int start, int end)
-{
-    int pivot = rand() % (end - start) + start;
-    swap(A[end], A[pivot]);
-    int Pindex = Partition(A, start, end);
-    return Pindex;
-}
-
-void QuickSort(int *A, int start, int end)
-{
-    if (start < end)
+    if (n <= 1)
     {
-        //int Pindex = Partition(A, start, end);
-        int Pindex = RandomizedPartition(A, start, end);
-        QuickSort(A, start, Pindex - 1);
-        QuickSort(A, Pindex + 1, end);
+        cout << "Yes\n";
     }
 }
-
 int main()
 {
-    int A[] = {6, 2, 3, 1, 9, 10, 15, 13, 12, 17};
-    int start = 0;
-    int n = sizeof(A) / sizeof(A[0]);
-    QuickSort(A, start, n);
-    for (int i = 0; i < n; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cout << A[i] << " ";
+        int n;
+        cin >> n;
+        powTwo(n);
     }
-    cout << endl;
+
     return 0;
 }
