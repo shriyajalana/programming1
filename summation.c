@@ -1,15 +1,20 @@
-// summetion of all array intergers
-#include<stdio.h>
+#include <iostream>
+using namespace std;
+bool CheckPower(int n)
+{
+    if (n < 2 && n > 0)
+    {
+        return true;
+    }
+    else if (n < 0)
+    {
+        return false;
+    }
+    return (n % 2 == 0) && CheckPower(n / 2);
+}
 int main()
 {
-	int n;
-	scanf("%d",&n);
-	int a[n];
-	int ans=0;
-	for(int i=0;i<n;i++){
-		scanf("%d",&a[i]);
-		ans=ans+a[i];
-	}
-	prinf(" ans = %d",ans);
-	return 0;
+    int number;
+    cin >> number;
+    cout << CheckPower(number) << endl;
 }
