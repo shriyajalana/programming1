@@ -1,62 +1,21 @@
-// queue using LinkedList Enqueue-O(1)  from front and Dequeue from NULL pointer
-
-#include <iostream>
-struct Node
-{
-    int data;
-    Node *next;
-};
-Node *front = NULL;
-
-void Enqueue(int x)
-{
-    Node *temp = new Node();
-    temp->data = x;
-    temp->next = NULL;
-    if (front == NULL)
-    {
-        front = temp;
-        return;
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+    int n,m,i;
+    vector<int> vect;
+    cin>>n;
+    while(n!=0){
+        m=n%2;
+        vect.push_back(m);
+        n=n/2;
     }
-    temp->next = front;
-    front = temp;
-}
+    reverse(vect.begin(),vect.end());
 
-void Dequeue()
-{
-    Node *temp = front;
-    Node *rear;
-    while (temp != NULL)
-    {
-        rear = temp;
-        temp = temp->next;
+    for(i=0;i<vect.size();i++){
+        cout<<vect[i];
     }
-    std::cout << rear->data << "\n";
-    rear->next = NULL;
-}
-
-void Print()
-{
-    Node *temp = front;
-    while (temp != NULL)
-    {
-        std::cout << temp->data << "  ";
-        temp = temp->next;
-    }
-    std::cout << std::endl;
-}
-
-int main()
-{
-    Enqueue(2);
-    Print();
-    Enqueue(4);
-    Print();
-    Enqueue(6);
-    Print();
-    Dequeue();
-    Print();
-    Enqueue(8);
-    Print();
+    cout<<endl;
     return 0;
 }
