@@ -1,21 +1,15 @@
 //Using this code you can calculate the factorial of any given number
 
-#include <stdio.h>
-int main() {
-    int n, i;
-    unsigned long long fact = 1;
-    printf("Enter an integer: ");
-    scanf("%d", &n);
-
-    // shows error if the user enters a negative integer
-    if (n < 0)
-        printf("Error! Factorial of a negative number doesn't exist.");
-    else {
-        for (i = 1; i <= n; ++i) {
-            fact *= i;
-        }
-        printf("Factorial of %d = %llu", n, fact);
+#include<stdio.h>
+int main()
+{
+    printf("Enter the number to Find Factorial: ");
+    scanf("%d",&n);
+    int factorial=1;
+    for(int i=1; n<=n; i++)
+    {
+        factorial=factorial*i;
     }
-
+    printf("Factorial of a given number is: %d",n);
     return 0;
 }
