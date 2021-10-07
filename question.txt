@@ -1,11 +1,62 @@
-1) How do you spend your time on a daily basis
-2) What used to be your biggest weakness
-3) What would you do in this situation if you were me 
-4) How do you setplan your goals 
-5) What sets you apart from competitors in your industry 
-6) What do you think my strengths and weaknesses are 
-7) Can I reach out to you with questions I may have 
-8) How did you learn to deal with failure
-9) This is how fast youtube is refreshing cool
-10) I know only python if you wanted to know something else then keep supporting
+// queue using LinkedList Enqueue-O(1)  from front and Dequeue from NULL pointer
 
+#include <iostream>
+struct Node
+{
+    int data;
+    Node *next;
+};
+Node *front = NULL;
+
+void Enqueue(int x)
+{
+    Node *temp = new Node();
+    temp->data = x;
+    temp->next = NULL;
+    if (front == NULL)
+    {
+        front = temp;
+        return;
+    }
+    temp->next = front;
+    front = temp;
+}
+
+void Dequeue()
+{
+    Node *temp = front;
+    Node *rear;
+    while (temp != NULL)
+    {
+        rear = temp;
+        temp = temp->next;
+    }
+    std::cout << rear->data << "\n";
+    rear->next = NULL;
+}
+
+void Print()
+{
+    Node *temp = front;
+    while (temp != NULL)
+    {
+        std::cout << temp->data << "  ";
+        temp = temp->next;
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    Enqueue(2);
+    Print();
+    Enqueue(4);
+    Print();
+    Enqueue(6);
+    Print();
+    Dequeue();
+    Print();
+    Enqueue(8);
+    Print();
+    return 0;
+}
