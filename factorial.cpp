@@ -1,35 +1,29 @@
 #include <iostream>
 using namespace std;
-
-void BubbleSort(int *A, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        int flag = 0;
-        for (int j = 0; j < n - i; j++)
-        {
-            if (A[j] > A[j + 1])
-            {
-                swap(A[j], A[j + 1]);
-                flag = 1;
-            }
-        }
-        if (flag = 0)
-        {
-            break;
-        }
-    }
-}
-
 int main()
 {
-    int A[] = {6, 2, 3, 1, 9, 10, 15, 13, 12, 17};
-    int n = sizeof(A) / sizeof(A[0]);
-    BubbleSort(A, n);
-    for (int i = 0; i < n; i++)
+    int n, i;
+    cin >> n;
+    int pro = 1;
+    for (i = 1; i <= n; i++)
     {
-        cout << A[i] << " ";
+        pro = pro * i;
     }
-    cout << endl;
+    cout << pro << endl;
     return 0;
 }
+
+// int factorial(int n)
+// {
+//     if (n == 1)
+//     {
+//         return 1;
+//     }
+//     return n * factorial(n - 1);
+// }
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     cout << factorial(n) << endl;
+// }
