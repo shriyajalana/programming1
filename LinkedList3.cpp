@@ -22,18 +22,6 @@ void Insert(int n){
     temp1->next=temp;
 }
 
-void Reverse(){
-    Node *current,*pre,*next;
-    pre=NULL;
-    current=head;
-    while(current!=NULL){
-        next=current->next;
-        current->next=pre;
-        pre=current;
-        current=next;
-    }
-    head=pre;
-}
 
 void Print(){
     Node* temp=head;
@@ -52,7 +40,6 @@ int main(){
     Insert(15);
     cout<<"List before reverse is...";
     Print();
-    Reverse();
     cout<<"List after reverse is...";
     Print();
     return 0;
