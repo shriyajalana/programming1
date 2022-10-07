@@ -1,32 +1,33 @@
-#include <iostream>
-using namespace std;
-void SelectionSort(int A[], int n)
-{
-    for (int i = 0; i < n - 1; i++)
-    {
-        int imin = i;
-        for (int j = i + 1; j < n; j++)
-        {
-            if (A[j] < A[imin])
-            {
-                imin = j;
-            }
-        }
-        int temp = A[imin];
-        A[imin] = A[i];
-        A[i] = temp;
-    }
-}
+// 1,2,3,6,4,5,7,6,9
 
+#include <iostream>
+#include <vector>
+using namespace std;
 int main()
 {
-    int A[] = {2, 7, 4, 1, 5, 3};
-    int n = 6;
-    SelectionSort(A, n);
+    int n;
+    cin >> n;
+    int array[n];
     for (int i = 0; i < n; i++)
     {
-        cout << A[i] << " ";
+        cin >> array[i];
+    }
+    vector<int> myVect;
+    int k;
+    cin >> k;
+    for (int i = 0; i < n; i++)
+    {
+        if (array[i] != k)
+        {
+            myVect.push_back(array[i]);
+        }
+    }
+    cout << "Vector is: ";
+    for (int j = 0; j < myVect.size(); j++)
+    {
+        cout << myVect[j] << ", ";
     }
     cout << endl;
-    return 0;
 }
+
+// 1,2,3,4,5
