@@ -1,55 +1,33 @@
-//reverse a linked list using recurssion method
-#include<iostream>
+// 1,2,3,6,4,5,7,6,9
+
+#include <iostream>
+#include <vector>
 using namespace std;
-struct Node{
-    int data;
-    Node* next;
-};
-Node* head;
-void Insert(int n){
-    Node* temp=new Node;
-    temp->data=n;
-    temp->next=NULL;
-    if(head==NULL){
-        head=temp;
-        return;
+int main()
+{
+    int n;
+    cin >> n;
+    int array[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> array[i];
     }
-    else{
-        Node* temp1=head;
-        while(temp1->next!=NULL){
-            temp1=temp1->next;
+    vector<int> myVect;
+    int k;
+    cin >> k;
+    for (int i = 0; i < n; i++)
+    {
+        if (array[i] != k)
+        {
+            myVect.push_back(array[i]);
         }
-        temp1->next=temp;
     }
-}
-void Print(){
-    Node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<"  ";
-        temp=temp->next;
+    cout << "Vector is: ";
+    for (int j = 0; j < myVect.size(); j++)
+    {
+        cout << myVect[j] << ", ";
     }
-    cout<<endl;
+    cout << endl;
 }
 
-void ReversePrint(Node* p){
-    if(p->next==NULL){
-        head=p;
-        return;
-    }
-    ReversePrint(p->next);
-    Node* q=p->next;
-    q->next=p;
-    p->next=NULL;
-}
-
-int main(){
-    head=NULL;
-    Insert(4);
-    Insert(7);
-    Insert(2);
-    Insert(8);
-    Insert(9);
-    ReversePrint(head);
-    Print();
-    return 0;
-}
+// 1,2,3,4,5
