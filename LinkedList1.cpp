@@ -1,33 +1,49 @@
-// 1,2,3,6,4,5,7,6,9
-
+// insert a node at the beginning of the list
 #include <iostream>
-#include <vector>
 using namespace std;
-int main()
+
+struct Node
 {
-    int n;
-    cin >> n;
-    int array[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> array[i];
-    }
-    vector<int> myVect;
-    int k;
-    cin >> k;
-    for (int i = 0; i < n; i++)
-    {
-        if (array[i] != k)
-        {
-            myVect.push_back(array[i]);
-        }
-    }
-    cout << "Vector is: ";
-    for (int j = 0; j < myVect.size(); j++)
-    {
-        cout << myVect[j] << ", ";
-    }
-    cout << endl;
+    int data; //creating a node with two variable one is data and another one is pointer
+    Node *next;
+};
+
+Node *Insert(Node *head, int x)
+{
+    Node *temp = new Node; //creating a node
+    temp->data = x;        //storing data in the node
+    temp->next = NULL;     //storing address in the node
+
+    temp->next = head; // linking node with other node         phle jodo
+    head = temp;       // breaking a link and adding with the head   phir todo
+    return head;
 }
 
-// 1,2,3,4,5
+void Print(Node *temp)
+{
+    cout << "Here is the list: ";
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+        cout << temp->data << " -> ";
+    }
+    cout << endl;
+    cout << temp->data << "  ";
+    cout << "\n";
+}
+
+int main()
+{
+    Node *head = NULL;
+    int i, n, x;
+    cout << "How many number?\n";
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cout << "Enter Number\n";
+        cin >> x;
+        head = Insert(head, x);
+    }
+    Print(head);
+    return 0;
+}
