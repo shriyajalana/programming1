@@ -5,76 +5,44 @@ struct Node
     int data;
     Node *next;
 };
-Node *head = NULL;
+
+Node *head;
 void insert(int data)
 {
     Node *temp = new Node;
     temp->data = data;
-    temp->next = NULL;
-    temp->next = head;
-    head = temp;
-    return;
+    if (head == NULL)
+    {
+        temp->next = temp;
+        head = temp;
+    }
+    else
+    {
+        temp->next = head->next;
+        head->next = temp;
+    }
 }
 
-void print()
+void Print()
 {
-    Node *temp = head;
-    while (temp != NULL)
+    Node *temp = head->next;
+    do
     {
-        cout << temp->data << " ";
+        cout << temp->data << "  ";
         temp = temp->next;
-    }
+    } while (temp != head->next);
     cout << endl;
 }
-
-void secondLast()
-{
-    Node *temp = head;
-    temp = temp->next;
-    if (temp->next->next->next->data == 2)
-    {
-        cout << "Yes it is equal to two\n";
-    }
-    cout << temp->data << endl;
-}
-void swap()
-{
-    Node *temp1 = head;
-    Node *temp2 = temp1->next;
-    while (temp1 != NULL && temp2->next != NULL)
-    {
-        int x;
-        x = temp1->data;
-        temp1->data = temp2->data;
-        temp2->data = x;
-        temp1 = temp2->next;
-        temp2 = temp1->next;
-    }
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
-}
-
 int main()
 {
-    insert(4);
-    print();
-    insert(2);
-    print();
-    insert(5);
-    print();
-    insert(8);
-    print();
+    head = NULL;
     insert(1);
-    print();
-    insert(9);
-    print();
-    // insert(11);
-    // print();
-    swap();
+    Print();
+    insert(2);
+    Print();
+    insert(3);
+    Print();
+    insert(4);
+    Print();
     return 0;
 }
