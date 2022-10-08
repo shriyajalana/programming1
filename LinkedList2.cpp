@@ -1,49 +1,25 @@
-// insert a node at the beginning of the list
 #include <iostream>
 using namespace std;
-
-struct Node
+void Double(int *A, int size)            //  *A == A[]
 {
-    int data; //creating a node with two variable one is data and another one is pointer
-    Node *next;
-};
-
-Node *Insert(Node *head, int x)
-{
-    Node *temp = new Node; //creating a node
-    temp->data = x;        //storing data in the node
-    temp->next = NULL;     //storing address in the node
-
-    temp->next = head; // linking node with other node         phle jodo
-    head = temp;       // breaking a link and adding with the head   phir todo
-    return head;
-}
-
-void Print(Node *temp)
-{
-    cout << "Here is the list: ";
-    while (temp->next != NULL)
+    int i;
+    for (i = 0; i < size; i++)
     {
-        temp = temp->next;
-        cout << temp->data << " -> ";
+        A[i] = A[i]*2;                   // *(A+i) == A[i]
     }
-    cout << endl;
-    cout << temp->data << "  ";
-    cout << "\n";
 }
 
 int main()
 {
-    Node *head = NULL;
-    int i, n, x;
-    cout << "How many number?\n";
-    cin >> n;
-    for (i = 0; i < n; i++)
+    int A[] = {1, 2, 3, 4, 5};
+    int size = sizeof(A);    // sizeof(A[0]); //sizeof(A)=5*4->20; sizeof(A[0])=4; therefore the size is 20/4=5
+    cout<<"size: "<<size<<endl;
+    Double(A, size);         // A=&A[0]  This will pass the address of the first element
+    int i;
+    for (i = 0; i < size; i++)
     {
-        cout << "Enter Number\n";
-        cin >> x;
-        head = Insert(head, x);
+        cout << A[i] << "   ";
     }
-    Print(head);
+    cout << endl;
     return 0;
 }
