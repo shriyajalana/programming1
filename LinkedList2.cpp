@@ -1,49 +1,47 @@
-// insert a node at the beginning of the list
-#include <iostream>
-using namespace std;
+//printing number in farward and backward direction using recursion method
 
-struct Node
-{
-    int data; //creating a node with two variable one is data and another one is pointer
-    Node *next;
+#include<iostream>
+using namespace std;
+struct Node{
+    int data;
+    Node* next;
 };
 
-Node *Insert(Node *head, int x)
-{
-    Node *temp = new Node; //creating a node
-    temp->data = x;        //storing data in the node
-    temp->next = NULL;     //storing address in the node
-
-    temp->next = head; // linking node with other node         phle jodo
-    head = temp;       // breaking a link and adding with the head   phir todo
+Node* Insert(Node* head,int n){
+    Node* temp=new Node;
+    temp->data=n;
+    temp->next=NULL;
+    if(head==NULL){
+        head=temp;
+        return;
+    }
+    else{
+        Node* temp1;
+        temp1=head;
+        while(temp1->next!=NULL){
+            temp1=temp1->next;
+        }
+        temp1->next=temp;
+    }
     return head;
 }
 
-void Print(Node *temp)
-{
-    cout << "Here is the list: ";
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-        cout << temp->data << " -> ";
+void Print(Node* head){
+    if(head==NULL){
+        cout<<"\n";
+        return;
     }
-    cout << endl;
-    cout << temp->data << "  ";
-    cout << "\n";
+    cout<<head->data<<"  ";      // Number will print in the forward direction
+    Print(head->next);           //recursive call of Print function
+    cout<<head->data<<"  ";      //Number will print in the backward direction
 }
 
-int main()
-{
-    Node *head = NULL;
-    int i, n, x;
-    cout << "How many number?\n";
-    cin >> n;
-    for (i = 0; i < n; i++)
-    {
-        cout << "Enter Number\n";
-        cin >> x;
-        head = Insert(head, x);
-    }
+int main(){
+    Node* head=NULL;
+    head=Insert(head,2);
+    head=Insert(head,5);
+    head=Insert(head,7);
+    head=Insert(head,4);
     Print(head);
     return 0;
 }
