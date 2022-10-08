@@ -1,33 +1,13 @@
-// 1,2,3,6,4,5,7,6,9
-
-#include <iostream>
-#include <vector>
+#include<iostream>
 using namespace std;
-int main()
-{
+int main(){
+    string p;
+    cin>>p;                         // first convert that time in 24 hour format
     int n;
-    cin >> n;
-    int array[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> array[i];
-    }
-    vector<int> myVect;
-    int k;
-    cin >> k;
-    for (int i = 0; i < n; i++)
-    {
-        if (array[i] != k)
-        {
-            myVect.push_back(array[i]);
-        }
-    }
-    cout << "Vector is: ";
-    for (int j = 0; j < myVect.size(); j++)
-    {
-        cout << myVect[j] << ", ";
-    }
-    cout << endl;
+    if((n!=0)&& (n!=12))
+    cout<<p<<endl;
+    int n;
+    cin>>n;
+    string l[n],r[n];              // left and right clock timming for checking
+    return 0;
 }
-
-// 1,2,3,4,5
