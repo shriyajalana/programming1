@@ -1,66 +1,35 @@
-// Delete a node at nth position
 
-#include<iostream>
+#include <iostream>
+#include <vector>
 using namespace std;
-struct Node{
-    int data;
-    Node* next;
-};
-Node* head;
 
-void Insert(int data){
-    Node* temp=new Node;
-    temp->data=data;
-    temp->next=NULL;
-    if(head==NULL){
-        head=temp;
-        return;
+int addRungs(vector<int> &rungs, int dist)
+{
+    int height = 0;
+    int ans = 0;
+    int h;
+    for (int i = 0; i < rungs.size(); i++)
+    {
+        h = rungs[i] - height;
+        if (h > dist)
+        {
+            if (dist == 1)
+            {
+                ans += h - 1;
+            }
+            else
+            {
+                ans += h / dist;
+            }
+        }
+        height = rungs[i];
     }
-    Node* temp1=head;
-    while(temp1->next!=NULL){
-        temp1=temp1->next;
-    }
-    temp1->next=temp;   
-    
+    return ans;
 }
-
-void Print(){
-    Node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<"  ";
-        temp=temp->next;
-    }
-    cout<<"\n";
-}
-
-void Delete(int p){
-    Node* temp;
-    temp=head;
-    if(p==1){
-        head=temp->next;
-        free(temp);     //delete node
-        return;
-    }
-    Node* temp1=head;
-    for(int i=0;i<p-2;i++){
-        temp1=temp1->next;   //p-1 node
-    }
-    Node* temp2=temp1->next; //p node
-    temp1->next=temp2->next; // connection p-1th node to p+1th node 
-    free(temp2);   //delete node free pth node
-}
-
-int main(){
-    head=NULL;
-    Insert(7);
-    Insert(9);
-    Insert(2);
-    Insert(45);
-    Print();
-    cout<<"Enter position to delete \n";
-    int pos;
-    cin>>pos;
-    Delete(pos);
-    Print();
+int main()
+{
+    vector<int> rungs = {4, 8, 12, 16};
+    int dist = 3;
+    cout << addRungs(rungs, dist) << endl;
     return 0;
 }
