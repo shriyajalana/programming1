@@ -1,55 +1,48 @@
-//reverse a linked list using recurssion method
-#include<iostream>
+#include <iostream>
 using namespace std;
-struct Node{
+struct Node
+{
     int data;
-    Node* next;
+    Node *next;
 };
-Node* head;
-void Insert(int n){
-    Node* temp=new Node;
-    temp->data=n;
-    temp->next=NULL;
-    if(head==NULL){
-        head=temp;
-        return;
+
+Node *head;
+void insert(int data)
+{
+    Node *temp = new Node;
+    temp->data = data;
+    if (head == NULL)
+    {
+        temp->next = temp;
+        head = temp;
     }
-    else{
-        Node* temp1=head;
-        while(temp1->next!=NULL){
-            temp1=temp1->next;
-        }
-        temp1->next=temp;
+    else
+    {
+        temp->next = head->next;
+        head->next = temp;
     }
-}
-void Print(){
-    Node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<"  ";
-        temp=temp->next;
-    }
-    cout<<endl;
 }
 
-void ReversePrint(Node* p){
-    if(p->next==NULL){
-        head=p;
-        return;
-    }
-    ReversePrint(p->next);
-    Node* q=p->next;
-    q->next=p;
-    p->next=NULL;
+void Print()
+{
+    Node *temp = head->next;
+    do
+    {
+        cout << temp->data << "  ";
+        temp = temp->next;
+    } while (temp != head->next);
+    cout << endl;
 }
-
-int main(){
-    head=NULL;
-    Insert(4);
-    Insert(7);
-    Insert(2);
-    Insert(8);
-    Insert(9);
-    ReversePrint(head);
+int main()
+{
+    head = NULL;
+    insert(1);
+    Print();
+    insert(2);
+    Print();
+    insert(3);
+    Print();
+    insert(4);
     Print();
     return 0;
 }
