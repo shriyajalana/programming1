@@ -1,48 +1,49 @@
+// insert a node at the beginning of the list
 #include <iostream>
 using namespace std;
+
 struct Node
 {
-    int data;
+    int data; //creating a node with two variable one is data and another one is pointer
     Node *next;
 };
 
-Node *head;
-void insert(int data)
+Node *Insert(Node *head, int x)
 {
-    Node *temp = new Node;
-    temp->data = data;
-    if (head == NULL)
-    {
-        temp->next = temp;
-        head = temp;
-    }
-    else
-    {
-        temp->next = head->next;
-        head->next = temp;
-    }
+    Node *temp = new Node; //creating a node
+    temp->data = x;        //storing data in the node
+    temp->next = NULL;     //storing address in the node
+
+    temp->next = head; // linking node with other node         phle jodo
+    head = temp;       // breaking a link and adding with the head   phir todo
+    return head;
 }
 
-void Print()
+void Print(Node *temp)
 {
-    Node *temp = head->next;
-    do
+    cout << "Here is the list: ";
+    while (temp->next != NULL)
     {
-        cout << temp->data << "  ";
         temp = temp->next;
-    } while (temp != head->next);
+        cout << temp->data << " -> ";
+    }
     cout << endl;
+    cout << temp->data << "  ";
+    cout << "\n";
 }
+
 int main()
 {
-    head = NULL;
-    insert(1);
-    Print();
-    insert(2);
-    Print();
-    insert(3);
-    Print();
-    insert(4);
-    Print();
+    Node *head = NULL;
+    int i, n, x;
+    cout << "How many number?\n";
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cout << "Enter Number\n";
+        cin >> x;
+        head = Insert(head, x);
+    }
+    Print(head);
     return 0;
 }
