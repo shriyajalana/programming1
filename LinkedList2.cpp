@@ -1,25 +1,48 @@
 #include <iostream>
 using namespace std;
-void Double(int *A, int size)            //  *A == A[]
+struct Node
 {
-    int i;
-    for (i = 0; i < size; i++)
+    int data;
+    Node *next;
+};
+
+Node *head;
+void insert(int data)
+{
+    Node *temp = new Node;
+    temp->data = data;
+    if (head == NULL)
     {
-        A[i] = A[i]*2;                   // *(A+i) == A[i]
+        temp->next = temp;
+        head = temp;
+    }
+    else
+    {
+        temp->next = head->next;
+        head->next = temp;
     }
 }
 
+void Print()
+{
+    Node *temp = head->next;
+    do
+    {
+        cout << temp->data << "  ";
+        temp = temp->next;
+    } while (temp != head->next);
+    cout << endl;
+}
 int main()
 {
-    int A[] = {1, 2, 3, 4, 5};
-    int size = sizeof(A);    // sizeof(A[0]); //sizeof(A)=5*4->20; sizeof(A[0])=4; therefore the size is 20/4=5
-    cout<<"size: "<<size<<endl;
-    Double(A, size);         // A=&A[0]  This will pass the address of the first element
-    int i;
-    for (i = 0; i < size; i++)
-    {
-        cout << A[i] << "   ";
-    }
-    cout << endl;
+    head = NULL;
+    insert(1);
+    Print();
+    insert(2);
+    Print();
+    insert(3);
+    Print();
+    insert(4);
+    Print();
     return 0;
 }
