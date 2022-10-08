@@ -1,59 +1,37 @@
-
-#include <iostream>
+#include<iostream>
 using namespace std;
-struct Node
-{
-    int data;
-    Node *next;
-};
-
-Node *head = NULL;
-
-void insert(int data, int pos)
-{
-    Node *temp = new Node();
-    temp->data = data;
-    temp->next = NULL;
-    if (pos == 1)
-    {
-        temp->next = head;
-        head = temp;
-        return;
-    }
-    Node *temp1 = head;
-
-    for (int i = 0; i < pos - 2; i++)
-    {
-        temp1 = temp1->next;
-    }
-
-    temp->next = temp1->next;
-    temp1->next = temp;
-}
-
-void print()
-{
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->data << "  ";
-        temp = temp->next;
-    }
-    cout << endl;
-}
-
 int main()
 {
+    int t;
+    cin>>t;
+    while(t-->0)
+    {
+        int n;
+        cin>>n;
+        int a[n];
+        int i;
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i];
+        }
+        int x,sum=0;
 
-    insert(3, 1);
-    print();
-    insert(4, 1);
-    print();
-    insert(5, 3);
-    print();
-    insert(31, 2);
-    print();
-    insert(42, 2);
-    print();
+        for(i=0;i<n;i++)
+        {
+            if(i==n-1 && (n!=2))
+            {
+                x=a[i]-a[0];
+                x=abs(x);
+                sum=sum+x;              
+            }
+            if(i<n-1)
+            {
+                x=a[i]-a[i+1];
+                x=abs(x);
+                sum=sum+x;
+            }
+        }
+        cout<<sum<<endl;
+    }
     return 0;
 }
