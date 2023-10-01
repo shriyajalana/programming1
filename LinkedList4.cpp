@@ -1,65 +1,55 @@
-// Inserting a new node at nth position of the list
-
-#include <iostream>
-#include <vector>
-#include <algorithm>
+//reverse a linked list using recurssion method
+#include<iostream>
 using namespace std;
-struct Node
-{
+struct Node{
     int data;
-    Node *next;
+    Node* next;
 };
-Node *head;
-
-void Insert(int data, int n)
-{
-    Node *temp1 = new Node;
-    temp1->data = data;
-    temp1->next = NULL;
-    if (n == 1)
-    {
-        temp1->next = head;
-        head = temp1;
+Node* head;
+void Insert(int n){
+    Node* temp=new Node;
+    temp->data=n;
+    temp->next=NULL;
+    if(head==NULL){
+        head=temp;
         return;
     }
-    Node *temp2 = head;
-    for (int i = 0; i < n - 2; i++)
-    {
-        temp2 = temp2->next;
+    else{
+        Node* temp1=head;
+        while(temp1->next!=NULL){
+            temp1=temp1->next;
+        }
+        temp1->next=temp;
     }
-    temp1->next = temp2->next;
-    temp2->next = temp1;
+}
+void Print(){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<"  ";
+        temp=temp->next;
+    }
+    cout<<endl;
 }
 
-void Print()
-{
-    Node *temp = head;
-    cout << "the list is...  ";
-    while (temp != NULL)
-    {
-        cout << temp->data << "  ";
-        temp = temp->next;
+void ReversePrint(Node* p){
+    if(p->next==NULL){
+        head=p;
+        return;
     }
-    cout << endl;
+    ReversePrint(p->next);
+    Node* q=p->next;
+    q->next=p;
+    p->next=NULL;
 }
 
-int main()
-{
-    head = NULL;
-    int n, data, num;
-    int k = n;
-    cout << "how many number do you wanted to insert?\n";
-    cin >> num;
-    while (n > 0)
-    {
-        cout << "enter number\n";
-        cin >> data;
-        cout << "at which position\n";
-        cin >> n;
-        Insert(data, n);
-        n--;
-    }
+int main(){
+    head=NULL;
+    Insert(4);
+    Insert(7);
+    Insert(2);
+    Insert(8);
+    Insert(9);
+    ReversePrint(head);
     Print();
-
     return 0;
 }
