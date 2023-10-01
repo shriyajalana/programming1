@@ -1,13 +1,12 @@
-//printing number in farward and backward direction using recursion method
-
+//reverse a linked list using recurssion method
 #include<iostream>
 using namespace std;
 struct Node{
     int data;
     Node* next;
 };
-
-Node* Insert(Node* head,int n){
+Node* head;
+void Insert(int n){
     Node* temp=new Node;
     temp->data=n;
     temp->next=NULL;
@@ -16,32 +15,41 @@ Node* Insert(Node* head,int n){
         return;
     }
     else{
-        Node* temp1;
-        temp1=head;
+        Node* temp1=head;
         while(temp1->next!=NULL){
             temp1=temp1->next;
         }
         temp1->next=temp;
     }
-    return head;
+}
+void Print(){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<"  ";
+        temp=temp->next;
+    }
+    cout<<endl;
 }
 
-void Print(Node* head){
-    if(head==NULL){
-        cout<<"\n";
+void ReversePrint(Node* p){
+    if(p->next==NULL){
+        head=p;
         return;
     }
-    cout<<head->data<<"  ";      // Number will print in the forward direction
-    Print(head->next);           //recursive call of Print function
-    cout<<head->data<<"  ";      //Number will print in the backward direction
+    ReversePrint(p->next);
+    Node* q=p->next;
+    q->next=p;
+    p->next=NULL;
 }
 
 int main(){
-    Node* head=NULL;
-    head=Insert(head,2);
-    head=Insert(head,5);
-    head=Insert(head,7);
-    head=Insert(head,4);
-    Print(head);
+    head=NULL;
+    Insert(4);
+    Insert(7);
+    Insert(2);
+    Insert(8);
+    Insert(9);
+    ReversePrint(head);
+    Print();
     return 0;
 }
