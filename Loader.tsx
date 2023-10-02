@@ -1,21 +1,33 @@
-import React from 'react';
-import './Loader.css';
+import React, { Component } from 'react';
+import './Offline.css';
 
-export const Loader = () =>{
-	return(
-	  	<div className="spinner_on_verification">
-			<svg className='ver_load_svg' viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-				<circle className="length" fill="none" strokeWidth="8" strokeLinecap="round" cx="33" cy="33" r="28"></circle>
-			</svg>
-			<svg className='ver_load_svg' viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-				<circle fill="none" strokeWidth="8" strokeLinecap="round" cx="33" cy="33" r="28"></circle>
-			</svg>
-			<svg className='ver_load_svg' viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-				<circle fill="none" strokeWidth="8" strokeLinecap="round" cx="33" cy="33" r="28"></circle>
-			</svg>
-			<svg className='ver_load_svg' viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-				<circle fill="none" strokeWidth="8" strokeLinecap="round" cx="33" cy="33" r="28"></circle>
-			</svg>
-		</div>
-	);
+class Offline extends Component {
+	offlineListen = () =>{
+		var offNotif = document.getElementsByClassName('offline')[0];
+		var closeNotif = document.getElementsByClassName('close-notif')[0];
+		window.addEventListener('offline', function(e) { 
+			offNotif.classList.add('show-notif');
+		});
+
+		window.addEventListener('online', function(e) { 
+			offNotif.classList.remove('show-notif');
+		});
+
+		closeNotif.addEventListener("click", function(){
+		    offNotif.classList.remove('show-notif');
+		});
+	}
+	componentDidMount(){
+		this.offlineListen();
+	}
+	render() {
+		return(
+		  	<div className="offline">
+		  		<span className="fas fa-exclamation-circle"></span>
+				<span>&nbsp; You are offline! Services like login and registration would be unavailable</span>
+				<span className="close-notif fas fa-times"></span>
+			</div>
+		);
+	}
 }
+export default Offline;
