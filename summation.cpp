@@ -1,13 +1,21 @@
 #include<iostream>
+#include<string>
 using namespace std;
-int main(){
-    string p;
-    cin>>p;                         // first convert that time in 24 hour format
-    int n;
-    if((n!=0)&& (n!=12))
-    cout<<p<<endl;
-    int n;
-    cin>>n;
-    string l[n],r[n];              // left and right clock timming for checking
+// bool checkPali(string s){
+//     int l=0;
+//     int h=s.size()-1;
+//     while(l<=h){
+//         if(s[l++]!=s[h--]){
+//             return false;
+//         }
+//     }
+//     return false;
+// }
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<"Before: "<<s<<"After: ";
+    cout<<s.erase(s.begin() + 4);
     return 0;
 }
