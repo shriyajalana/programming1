@@ -1,4 +1,4 @@
-//reverse the linkedlist by iteratively
+//reverse a linked list using recurssion method
 #include<iostream>
 using namespace std;
 struct Node{
@@ -6,7 +6,6 @@ struct Node{
     Node* next;
 };
 Node* head;
-
 void Insert(int n){
     Node* temp=new Node;
     temp->data=n;
@@ -15,45 +14,42 @@ void Insert(int n){
         head=temp;
         return;
     }
-    Node* temp1=head;
-    while(temp1->next!=NULL){
-        temp1=temp1->next;
+    else{
+        Node* temp1=head;
+        while(temp1->next!=NULL){
+            temp1=temp1->next;
+        }
+        temp1->next=temp;
     }
-    temp1->next=temp;
 }
-
-void Reverse(){
-    Node *current,*pre,*next;
-    pre=NULL;
-    current=head;
-    while(current!=NULL){
-        next=current->next;
-        current->next=pre;
-        pre=current;
-        current=next;
-    }
-    head=pre;
-}
-
 void Print(){
     Node* temp=head;
     while(temp!=NULL){
         cout<<temp->data<<"  ";
         temp=temp->next;
     }
-    cout<<"\n";
+    cout<<endl;
+}
+
+void ReversePrint(Node* p){
+    if(p->next==NULL){
+        head=p;
+        return;
+    }
+    ReversePrint(p->next);
+    Node* q=p->next;
+    q->next=p;
+    p->next=NULL;
 }
 
 int main(){
     head=NULL;
-    Insert(3);
+    Insert(4);
     Insert(7);
-    Insert(22);
-    Insert(15);
-    cout<<"List before reverse is...";
-    Print();
-    Reverse();
-    cout<<"List after reverse is...";
+    Insert(2);
+    Insert(8);
+    Insert(9);
+    ReversePrint(head);
     Print();
     return 0;
 }
