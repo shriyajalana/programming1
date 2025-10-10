@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string normalizePath(string path) {
+    vector<string> st;
+    stringstream ss(path);
+    string token;
+    while(getline(ss, token, '/')){
+        if(token=="" || token==".") continue;
+        if(token==".."){
+            if(!st.empty()) st.pop_back();
+        } else st.push_back(token);
+    }
+    string res="/";
+    for(int i=0;i<st.size();i++){
+        res+=st[i];
+        if(i+1<st.size()) res+="/";
+    }
+    return res;
+}
+
+int main(){
+    cout << normalizePath("/a/./b/../../c/") << endl; // "/c"
+}
